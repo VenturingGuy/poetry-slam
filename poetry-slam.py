@@ -1,4 +1,4 @@
-
+import random
 '''
 get_file_lines receives a text file as an argument, creates and returns
 a list of strings called lineList using the lines from the filename that are
@@ -22,3 +22,14 @@ starting from the last line.
 def lines_printed_backwards(lineList):
     for line in reversed(lineList):
         print(line)
+
+
+def lines_printed_random(lineList):
+    for _ in range(len(lineList)):
+        print(random.choice(lineList))
+
+
+poem = get_file_lines("poem.txt")
+lines_printed_backwards(poem)
+poem = get_file_lines("poem.txt")
+lines_printed_random(poem)
