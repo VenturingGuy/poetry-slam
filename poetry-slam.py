@@ -82,7 +82,7 @@ def lines_printed_custom(lines_list):
 Similar text file convention.
 Iterates through each line in lines_list, splits the line into words,
 shuffles the order of words, rejoins the line into a joined_line variable.
-Writes the joined line into a file, prints the lines.
+Writes the joined line into a file, prints the joined lines.
 '''
 
 
@@ -96,20 +96,39 @@ def lines_printed_scrambled(lines_list):
         print(joined_line)
     scrambled_poem.close()
 
+
+'''
+The menu function of the program.
+Initializes 2 input variables, 1 for handling the menu, the other for
+receiving a filename. Note that this input, as is, may be prone to many
+errors, making this worth looking into in the future.
+
+Prints a message asking the user to input a text filename such as 'poem.txt'.
+
+Then, prints a message asking the user to input which function to call.
+
+Typing 5 will exit the program.
+'''
+
+
 def main_menu():
     menu_input = 0
     poem_input = ""
 
     print("""
     Welcome to the poetry slam!\n
-    To get started, please input a text file name located in the directory.\n""")
+    To get started, please input a text file name located in the
+    directory.\n""")
     poem_input = input("Please enter a valid txt file name. ")
     poem = get_file_lines(poem_input)
 
     print("""
+    Note: selecting any of the following will also write
+    a poem in a txt file.\n
     To print it backwards, input 1.\n
     To print random lines from the poem, input 2.\n
     To print only lines that have the phrase "Nevermore" in them, input 3.\n
+    To print a poem with the words in each line scrambled, input 4.\n
     To exit, input 5.\n""")
 
     while menu_input != 5:
